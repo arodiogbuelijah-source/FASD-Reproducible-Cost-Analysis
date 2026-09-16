@@ -1,0 +1,6 @@
+[project]
+name = "fasd-cost-framework"
+version = "1.0.0"
+description = "Deterministic proof-of-concept FASD cost-analysis workflow"
+requires-python = ">=3.12,<3.13"
+license = {text = "MIT"}

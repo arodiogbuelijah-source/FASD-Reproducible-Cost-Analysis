@@ -1,0 +1,20 @@
+{
+  "git_commit": "b2d5960d6c9d7f0ccf1dc3894a864d1e716c349f",
+  "identical_output_hashes": true,
+  "maximum_seconds": 0.004319,
+  "mean_seconds": 0.001811,
+  "median_seconds": 0.001551,
+  "minimum_seconds": 0.001414,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "random_seed": 20260916,
+  "runs": 30,
+  "successful_runs": 30,
+  "summary": {
+    "mean_healthcare_cost": 12055.02,
+    "mean_justice_cost": 11655.25,
+    "mean_total_cost": 23710.27,
+    "n": 100,
+    "seed": 20260916
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "covered_statements": 94,
+  "files": {
+    "__init__.py": {
+      "covered": 0,
+      "statements": 2
+    },
+    "config.py": {
+      "covered": 7,
+      "statements": 7
+    },
+    "costing.py": {
+      "covered": 9,
+      "statements": 9
+    },
+    "generate.py": {
+      "covered": 20,
+      "statements": 20
+    },
+    "pipeline.py": {
+      "covered": 36,
+      "statements": 38
+    },
+    "validate.py": {
+      "covered": 22,
+      "statements": 23
+    }
+  },
+  "method": "Python trace execution mapped to AST statement lines",
+  "statement_coverage_percent": 94.9,
+  "statements": 99,
+  "tests_run": 10,
+  "tests_successful": true
+}

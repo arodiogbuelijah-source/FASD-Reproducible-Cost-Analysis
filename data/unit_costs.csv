@@ -1,0 +1,11 @@
+parameter,unit_cost_gbp,unit,source,source_url,price_basis,adjustment
+gp_visit,52.76,per in-person consultation,"Jones et al.; PSSRU 2020/21 value reproduced in Healthcare resource use unit costs",https://www.isrctn.com/editorial/retrieveFile/7c90b5ad-b0d4-42ba-b91d-e2c5b2be51a9/37366,2020/21 GBP,None
+hospital_admission,4852.00,per non-elective long-stay admission,"NHS England 2022/23 National Cost Collection; headline weighted average reported by HFMA",https://www.england.nhs.uk/publication/2022-23-national-cost-collection-data-publication-2/,2022/23 GBP,None
+mental_health_visit,120.00,per contact,Researcher-defined software-test parameter,not_applicable,2023/24 GBP,None
+diagnostic_assessment,800.00,per assessment,Researcher-defined software-test parameter,not_applicable,2023/24 GBP,None
+medication_expenditure,1.00,per GBP recorded,Direct synthetic expenditure variable,not_applicable,2023/24 GBP,None
+police_contact,250.00,per contact,Researcher-defined software-test parameter informed by Home Office crime-cost framework,https://www.gov.uk/government/publications/the-economic-and-social-costs-of-crime,2023/24 GBP,None
+court_appearance,1000.00,per appearance,Researcher-defined software-test parameter informed by Home Office crime-cost framework,https://www.gov.uk/government/publications/the-economic-and-social-costs-of-crime,2023/24 GBP,None
+probation_contact,75.00,per contact,Researcher-defined software-test parameter,not_applicable,2023/24 GBP,None
+custody_day,147.40,per day,"Researcher-defined daily parameter benchmarked to annual HMPPS cost reporting",https://www.gov.uk/government/collections/prison-and-probation-trusts-performance-statistics,2023/24 GBP,None
+rehabilitation_episode,870.00,per episode,Researcher-defined software-test parameter,not_applicable,2023/24 GBP,None

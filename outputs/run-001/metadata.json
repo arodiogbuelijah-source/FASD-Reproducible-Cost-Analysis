@@ -1,0 +1,9 @@
+{
+  "implementation": "CPython",
+  "package_version": "1.0.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "records_sha256": "c6d0899d34345a78c694debb0a8e0f40bbcf3fa8c766cdb6d3facc0f31879cd2",
+  "seed": 20260916,
+  "summary_sha256": "11eb9d74267c91c772a5822d5cb5df569f9fd519224c6d5d24ebee6c73a2bc16"
+}
