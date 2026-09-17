@@ -1,4 +1,4 @@
-# Reproducible FASD Cost Analysis Proof of Concept
+# Reproducible FASD Cost Analysis
 
 This repository contains the executable proof-of-concept analysis described in
 the accompanying manuscript. It generates deterministic synthetic data,
@@ -8,8 +8,8 @@ outputs, writes machine-readable results, and creates an HTML report.
 ## Reproduce
 
 ```bash
-python3 -m unittest discover -s tests -v
-python3 scripts/benchmark.py --runs 30
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+PYTHONPATH=src python3 scripts/benchmark.py --runs 30
 ```
 
 The analysis uses Python's standard library only. The random seed is
@@ -35,6 +35,13 @@ of concept applies no inflation or currency adjustment.
 
 ## Availability
 
-The local Git commit identifies the exact tested version. A public repository
-URL and archived release DOI can be added after publication to GitHub and an
-archival service such as Zenodo.
+The source code is publicly available at:
+
+https://github.com/arodiogbuelijah-source/FASD-Reproducible-Cost-Analysis
+
+Version 1.0.0 is permanently archived on Zenodo:
+
+https://doi.org/10.5281/zenodo.22787519
+
+The repository is distributed under the MIT License.
+
