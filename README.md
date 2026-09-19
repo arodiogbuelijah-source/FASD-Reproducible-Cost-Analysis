@@ -11,6 +11,7 @@ outputs, writes machine-readable results, and creates an HTML report.
 
 ```bash
 PYTHONPATH=src python3 -m unittest discover -s tests -v
+PYTHONPATH=src python3 scripts/verify_reproduction.py
 PYTHONPATH=src python3 scripts/coverage_report.py
 PYTHONPATH=src python3 scripts/benchmark.py --runs 30
 ```
@@ -26,9 +27,13 @@ docker build -t fasd-cost-framework .
 docker run --rm fasd-cost-framework
 ```
 
-The container executes the automated test suite. GitHub Actions also runs the
-native tests, coverage measurement, 30-run benchmark, container build and
-containerised tests on pushes and pull requests.
+The container executes the automated test suite. GitHub Actions runs the test
+suite and verifies canonical output hashes across Linux, Windows and macOS on
+Python 3.11, 3.12 and 3.13. It also runs coverage measurement, the 30-run
+benchmark, a container build and containerised tests on pushes and pull
+requests. These checks demonstrate cross-environment computational
+reproduction; they are not a substitute for reproduction by an independent
+research team.
 
 ## Important scope statement
 
@@ -43,6 +48,7 @@ of concept applies no inflation or currency adjustment.
 - `data/unit_costs.csv`: parameter values, provenance and price basis
 - `tests`: positive, negative and repeatability tests
 - `scripts/benchmark.py`: repeated execution and timing procedure
+- `scripts/verify_reproduction.py`: canonical output and hash verification
 - `outputs`: generated analytical outputs and execution metadata
 - `Dockerfile`: pinned container definition
 - `Jenkinsfile`: alternative continuous-integration specification
