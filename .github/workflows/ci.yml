@@ -8,8 +8,36 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  reproduce:
+    name: Reproduce (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.11", "3.12", "3.13"]
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Run automated tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify canonical output hashes
+        run: python scripts/verify_reproduction.py
+
+  evaluate:
+    name: Coverage and benchmark
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: src
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -19,14 +47,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run automated tests
-        run: PYTHONPATH=src python3 -m unittest discover -s tests -v
-
       - name: Measure statement coverage
-        run: PYTHONPATH=src python3 scripts/coverage_report.py
+        run: python scripts/coverage_report.py
 
       - name: Run 30-execution benchmark
-        run: PYTHONPATH=src python3 scripts/benchmark.py --runs 30
+        run: python scripts/benchmark.py --runs 30
+
+  container:
+    name: Container build and tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Build container
         run: docker build --tag fasd-cost-framework:ci .
