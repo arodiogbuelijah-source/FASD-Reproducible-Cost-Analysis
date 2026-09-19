@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived release."
+title: "A Reproducible Framework for Economic Cost Analysis of Fetal Alcohol Spectrum Disorder in Healthcare and Criminal Justice Systems"
+type: software
+authors:
+  - family-names: Arodiogbu
+    given-names: Elijah Chukwuebuka
+  - family-names: Azumara
+    given-names: Stephen Ikechukwu
+  - family-names: Louis
+    given-names: Divine
+version: 1.0.0
+date-released: 2026-09-16
+doi: 10.5281/zenodo.22787519
+repository-code: "https://github.com/arodiogbuelijah-source/FASD-Reproducible-Cost-Analysis"
+license: MIT

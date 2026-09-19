@@ -1,5 +1,7 @@
 # Reproducible FASD Cost Analysis
 
+[![Reproducibility checks](https://github.com/arodiogbuelijah-source/FASD-Reproducible-Cost-Analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/arodiogbuelijah-source/FASD-Reproducible-Cost-Analysis/actions/workflows/ci.yml)
+
 This repository contains the executable proof-of-concept analysis described in
 the accompanying manuscript. It generates deterministic synthetic data,
 validates the records, calculates direct healthcare and criminal justice cost
@@ -17,6 +19,17 @@ The analysis uses Python's standard library only. The random seed is
 `20260916`. Identical code, configuration and interpreter versions should
 produce byte-identical CSV and JSON analytical outputs.
 
+## Container execution
+
+```bash
+docker build -t fasd-cost-framework .
+docker run --rm fasd-cost-framework
+```
+
+The container executes the automated test suite. GitHub Actions also runs the
+native tests, coverage measurement, 30-run benchmark, container build and
+containerised tests on pushes and pull requests.
+
 ## Important scope statement
 
 All person-level records are synthetic. Unit costs are software-test
@@ -32,14 +45,20 @@ of concept applies no inflation or currency adjustment.
 - `scripts/benchmark.py`: repeated execution and timing procedure
 - `outputs`: generated analytical outputs and execution metadata
 - `Dockerfile`: pinned container definition
-- `Jenkinsfile`: continuous-integration definition
-- `.github/workflows/ci.yml`: public automated test and coverage workflow
+- `Jenkinsfile`: alternative continuous-integration specification
+- `.github/workflows/ci.yml`: public automated reproducibility workflow
+- `CITATION.cff`: software citation metadata
 
-GitHub Actions runs the automated tests and coverage procedure on pushes and
-pull requests. The Jenkins definition remains available as an alternative
-pipeline specification and includes the benchmark and container-build stages.
+## Reproducibility evidence
 
-## Availability
+The archived 30-run local benchmark in `outputs/benchmark.json` was executed
+against commit `a65fece3d6c49216dbdb5bb35a932626b6fbe198`. It recorded 30
+successful runs with identical output hashes. The GitHub Actions workflow
+provides public, version-specific evidence for later commits. Docker and GitHub
+Actions results should be interpreted separately from the unexecuted Jenkins
+specification.
+
+## Availability and citation
 
 The source code is publicly available at:
 
@@ -49,4 +68,7 @@ Version 1.0.0 is permanently archived on Zenodo:
 
 https://doi.org/10.5281/zenodo.22787519
 
-The repository is distributed under the MIT License.
+Please cite the archived release using `CITATION.cff`. The repository is
+distributed under the MIT License. Contributions should follow
+`CONTRIBUTING.md`, and security-related concerns should follow
+`SECURITY.md`.
