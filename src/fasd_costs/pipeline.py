@@ -41,7 +41,7 @@ def run_pipeline(output_dir, seed=SEED, n=N_RECORDS):
         "mean_total_cost": round(fmean(x["total_cost"] for x in costed), 2),
     }
     summary_path = output_dir / "summary.json"
-    summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    summary_path.write_bytes((json.dumps(summary, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     metadata = {
         "python": platform.python_version(),
         "implementation": platform.python_implementation(),
@@ -51,18 +51,17 @@ def run_pipeline(output_dir, seed=SEED, n=N_RECORDS):
         "summary_sha256": sha256(summary_path),
         "package_version": "1.0.0",
     }
-    (output_dir / "metadata.json").write_text(
-        json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    (output_dir / "metadata.json").write_bytes(
+        (json.dumps(metadata, indent=2, sort_keys=True) + "\n").encode("utf-8")
     )
-    (output_dir / "report.html").write_text(
+    (output_dir / "report.html").write_bytes((
         "<!doctype html><html><head><meta charset='utf-8'><title>FASD cost test output</title></head>"
         f"<body><h1>Simulated FASD cost-analysis test output</h1><p>Records: {n}</p>"
         f"<p>Mean healthcare cost: GBP {summary['mean_healthcare_cost']:,.2f}</p>"
         f"<p>Mean justice cost: GBP {summary['mean_justice_cost']:,.2f}</p>"
         f"<p>Mean combined cost: GBP {summary['mean_total_cost']:,.2f}</p>"
-        "<p>These are synthetic software-test outputs, not empirical estimates.</p></body></html>\n",
-        encoding="utf-8",
-    )
+        "<p>These are synthetic software-test outputs, not empirical estimates.</p></body></html>\n"
+    ).encode("utf-8"))
     return summary, metadata
 
 
