@@ -24,3 +24,12 @@ jobs:
 
       - name: Measure statement coverage
         run: PYTHONPATH=src python3 scripts/coverage_report.py
+
+      - name: Run 30-execution benchmark
+        run: PYTHONPATH=src python3 scripts/benchmark.py --runs 30
+
+      - name: Build container
+        run: docker build --tag fasd-cost-framework:ci .
+
+      - name: Run tests in container
+        run: docker run --rm fasd-cost-framework:ci

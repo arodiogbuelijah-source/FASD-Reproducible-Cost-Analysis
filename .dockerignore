@@ -1,0 +1,6 @@
+.git
+.github
+__pycache__
+*.py[cod]
+outputs/run-*
+FASD_Reproducible_Cost_Analysis_Package_v1.0.0.tar.gz
