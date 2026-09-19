@@ -9,6 +9,7 @@ outputs, writes machine-readable results, and creates an HTML report.
 
 ```bash
 PYTHONPATH=src python3 -m unittest discover -s tests -v
+PYTHONPATH=src python3 scripts/coverage_report.py
 PYTHONPATH=src python3 scripts/benchmark.py --runs 30
 ```
 
@@ -32,6 +33,11 @@ of concept applies no inflation or currency adjustment.
 - `outputs`: generated analytical outputs and execution metadata
 - `Dockerfile`: pinned container definition
 - `Jenkinsfile`: continuous-integration definition
+- `.github/workflows/ci.yml`: public automated test and coverage workflow
+
+GitHub Actions runs the automated tests and coverage procedure on pushes and
+pull requests. The Jenkins definition remains available as an alternative
+pipeline specification and includes the benchmark and container-build stages.
 
 ## Availability
 
@@ -44,4 +50,3 @@ Version 1.0.0 is permanently archived on Zenodo:
 https://doi.org/10.5281/zenodo.22787519
 
 The repository is distributed under the MIT License.
-
